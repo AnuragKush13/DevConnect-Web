@@ -1,12 +1,11 @@
+import Navbar from "./components/navbar"
 
 
 function App() {
 
   return (
     <>
-     
-      <h1>DevConnect</h1>
-      
+    <Navbar/>
     </>
   )
 }
