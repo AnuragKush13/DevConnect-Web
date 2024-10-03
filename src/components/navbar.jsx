@@ -1,5 +1,7 @@
-export default function Navbar(){
+import React from 'react'
+const Navbar=()=>{
    return(
+   
 <div className="navbar bg-base-300">
   <div className="flex-1">
     <a className="btn btn-ghost text-xl">DevConnect</a>
@@ -32,3 +34,5 @@ export default function Navbar(){
   </div>
 </div>)
 }
+
+export default Navbar;
