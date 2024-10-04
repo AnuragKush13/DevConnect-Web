@@ -8,6 +8,7 @@ import { BASE_URL } from '../utils/constant';
 const Login = () => {
   const [emailId,setEmailId] = useState("salman@gmail.com");
   const [password,setPassword] = useState("Anurag@123");
+  const [error,setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogin = async()=>{
@@ -17,7 +18,9 @@ const Login = () => {
       dispatch(addUser(res.data.user))
       navigate("/")
     }
-    catch(err){console.error(err )}
+    catch(err){
+      setError(err?.response?.data || "Something went wrong!!")
+    }
   }
 
 
@@ -54,6 +57,7 @@ const Login = () => {
   </svg>
   <input type="text" className="grow" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} />
 </label>
+<p className='text-red-500'>{error}</p>
       <div className="card-actions justify-end">
         <button className="btn btn-primary" onClick={handleLogin}>Login</button>
       </div>
