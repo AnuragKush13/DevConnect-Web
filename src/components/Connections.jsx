@@ -18,9 +18,10 @@ const Connections = () => {
     useEffect(()=>{
         getConnections();
     },[])
+    if(!connections)return;
+  if(connections.length <= 0)return (<h2 className='flex justify-center my-10 text-xl'>No Connection yet..</h2>)
 
-
-
+  
   return (<div className='flex-col '>
     <div className='text-center my-5 text-2xl'>Connections</div>
     {connections&&connections.map((connection)=>{
