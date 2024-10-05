@@ -82,7 +82,7 @@ const EditProfile = ({userData}) => {
         </div>
       </div>
     </div></div>}
-    <UserCard user = {{firstName,lastName,gender,photoUrl,age,about}}/>
+    <UserCard user = {{_id:userData._id,firstName,lastName,gender,photoUrl,age,about}}/>
     </div>
     )
   }

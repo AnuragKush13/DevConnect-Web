@@ -27,6 +27,10 @@ const Feed = () => {
     feed();
    },[])
 
+   if(!feedData)return;
+
+   if(feedData.length <=0)return <h1 className='flex justify-center my-5'>No Users Available..</h1>
+
   return (
     <div className='flex justify-center my-5'>
        

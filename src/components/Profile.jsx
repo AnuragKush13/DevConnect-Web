@@ -8,11 +8,11 @@ import EditProfile from './EditProfile';
 const Profile = () => {
   
   const userData = useSelector((store)=>store.user);
-  const [firstName,setFirstName] = useState(userData.firstName);
-  const [lastName,setLastName] = useState(userData.lastName);
-  const [about,setAbout] = useState(userData.about);
-  const [gender,setGender] = useState(userData.gender);
-  const [photoUrl,setPhotoUrl] = useState(userData.photoUrl);
+  const [firstName,setFirstName] = useState(userData?.firstName);
+  const [lastName,setLastName] = useState(userData?.lastName);
+  const [about,setAbout] = useState(userData?.about);
+  const [gender,setGender] = useState(userData?.gender);
+  const [photoUrl,setPhotoUrl] = useState(userData?.photoUrl);
   const [error,setError] = useState("");
   const dispatch = useDispatch();
   const handleProfileEdit = async()=>{
@@ -27,7 +27,8 @@ const Profile = () => {
     }
   }
 
-
+  if(!userData) return;
+  if(userData.length<=0)return <h1>Some Error Occurred</h1>
   return (
     <>
     {userData && <EditProfile userData= {userData}/>}</>
