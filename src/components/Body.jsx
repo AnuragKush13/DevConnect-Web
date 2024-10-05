@@ -12,11 +12,10 @@ const Body = () => {
   const navigate = useNavigate();
   const userStoredata = useSelector((store)=>store.user);
   const fetchUser = async()=>{
-    if(!userStoredata) navigate("/login")
+    
       try{
-        
-     const res = await axios.get(BASE_URL+"/profile/view",{withCredentials:true})
-     dispatch(addUser(res.data));
+        const res = await axios.get(BASE_URL+"/profile/view",{withCredentials:true})
+        dispatch(addUser(res.data));
       }
       catch(err){
           if(err.status === 401)
@@ -24,9 +23,8 @@ const Body = () => {
       }
   }
   useEffect(()=>{
-    
-    if(!userStoredata) return navigate("/login")
-      fetchUser();
+    if(!userStoredata)
+    fetchUser();
   },[])
   return (
     <>
