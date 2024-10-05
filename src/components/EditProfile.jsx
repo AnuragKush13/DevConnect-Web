@@ -29,7 +29,6 @@ const EditProfile = ({userData}) => {
         // console.log("edit error ::"+res.data)
       }
       catch(err){
-        console.error("edit error ::"+err)
         setError(err?.response?.data || "Something went wrong!!")
       }
     }

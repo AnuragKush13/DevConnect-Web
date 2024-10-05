@@ -5,6 +5,8 @@ import axios from 'axios';
 import {removeUser} from '../features/userSlice';
 import { BASE_URL } from '../utils/constant';
 import { removeFeed } from '../features/feedSlice';
+import { removeConnection } from '../features/connectionSlice';
+import { clearRequest } from '../features/requestSlice';
 const Navbar=()=>{
   const user = useSelector((store)=>store.user)
   const dispatch = useDispatch();
@@ -15,6 +17,8 @@ const Navbar=()=>{
     await axios.post(BASE_URL+"/logout",{},{withCredentials:true});
     dispatch(removeUser())
     dispatch(removeFeed())
+    dispatch(removeConnection())
+    dispatch(clearRequest())
     navigate("/login")}
     catch(err){
       console.errror(err)
@@ -45,7 +49,16 @@ const Navbar=()=>{
             {/* <span className="badge">New</span> */}
           </Link>
         </li>
-        <li><a>Connections</a></li>
+        <li>
+          <Link to ="/connections" className="justify-between">
+            Connections
+            </Link>
+        </li>
+        <li>
+          <Link to ="/requests" className="justify-between">
+            Requests
+            </Link>
+        </li>
         <li><a onClick={handleLogout}>Logout</a></li>
       </ul>
     </div>}

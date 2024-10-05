@@ -12,7 +12,6 @@ const Body = () => {
   const navigate = useNavigate();
   const userStoredata = useSelector((store)=>store.user);
   const fetchUser = async()=>{
-    console.log("userstoredata::"+userStoredata)
     if(!userStoredata) navigate("/login")
       try{
         
@@ -22,7 +21,6 @@ const Body = () => {
       catch(err){
           if(err.status === 401)
           navigate("/login")
-          console.error(err)
       }
   }
   useEffect(()=>{
